@@ -13,9 +13,11 @@
 	<form:form action="${actionAdicionar}" method="post" modelAttribute="album">
 		<label>Nome</label>
 		<form:input path="nome" />
+		<form:errors path="nome"></form:errors>
 		<br/>
 		<label>Ano de lançamento</label>
 		<form:input path="anoDeLancamento" />
+		<form:errors path="anoDeLancamento"></form:errors>
 		<br/>
 		<input type="submit" value="Salvar">
 	</form:form>
