@@ -2,11 +2,21 @@
          pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<h2>Inserção de novo álbum...</h2>
-<c:url var="actionAdicionar" value="/albuns/adicionar"/>
 
-<form:form action="${actionAdicionar}" method="post"
+<c:url var="actionAlterar" value="/albuns/alterar"/>
+<h2>Alteração de novo álbum ${album.nome}</h2>
+
+<form:form action="${actionAlterar}" method="post"
            modelAttribute="album">
+           
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="form-label">ID: </label>
+                <form:input path="id" cssClass="form-control" readonly="true"/>
+            </div>
+        </div>
+    </div>
 
     <div class="row">
         <div class="col-md-6">

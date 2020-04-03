@@ -14,8 +14,8 @@
         			aria-haspopup="true" 
         			aria-expanded="false">Albuns</a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Listar</a>
-          <a class="dropdown-item" href="#">Cadastrar</a>
+          <a class="dropdown-item" href="/treinaweb-spring-mvc/albuns/listar">Listar</a>
+          <a class="dropdown-item" href="/treinaweb-spring-mvc/albuns/adicionar">Cadastrar</a>
         </div>
       </li>
       
