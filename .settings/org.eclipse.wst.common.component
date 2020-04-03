@@ -3,6 +3,7 @@
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
         <wb-resource deploy-path="/" source-path="/webapp"/>
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <property name="java-output-path" value="/TreinaWebSpringMVC/build/classes"/>
         <property name="context-root" value="treinaweb-spring-mvc"/>
     </wb-module>
