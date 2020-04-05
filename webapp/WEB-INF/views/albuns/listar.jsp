@@ -9,7 +9,7 @@
             <label>Álbum a ser pesquisado: </label>
             <input type="text" id="txt-pesquisa" class="form-control">
         </div>
-        <button class="btn btn-default" id="btn-pesquisa">Pesquisar</button>
+        <button class="btn btn-primary" id="btn-pesquisa">Pesquisar</button>
     </div>
 </div>
 <hr/>
@@ -39,3 +39,33 @@
 <br/>
 <a href="/treinaweb-spring-mvc/albuns/adicionar" class="btn btn-primary">Adicionar novo álbum</a>
 
+<script type="text/javascript">
+$(document).ready(function () {
+    $('#btn-pesquisa').click(function () {
+        var nomeAlbum = $('#txt-pesquisa').val();
+        $.ajax({
+            method: 'GET',
+            url: '/treinaweb-spring-mvc/albuns/porNome?nome=' + nomeAlbum,
+            success: function (data) {
+                $('#tbl-albuns tbody > tr').remove();
+                $.each(data, function (index, album) {
+                    $('#tbl-albuns tbody').append(
+                        '<tr>' +
+                        '   <td>' + album.id + '</td>' +
+                        '   <td>' + album.nome + '</td>' +
+                        '   <td>' + album.anoDeLancamento + '</td>' +
+                        '   <td>' +
+                        '       <a href="/treinaweb-spring-mvc/albuns/alterar/' + album.id + '">Alterar</a> |' +
+                        '       <a href="/treinaweb-spring-mvc/albuns/excluir/' + album.id + '">Excluir</a> ' +
+                        '   </td>' +
+                        '</tr>'
+                    );
+                });
+            },
+            error: function () {
+                alert("Houve um erro na requisição.");
+            }
+        });
+    });
+});
+</script>

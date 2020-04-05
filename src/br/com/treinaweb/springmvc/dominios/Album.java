@@ -1,8 +1,8 @@
 package br.com.treinaweb.springmvc.dominios;
 
+import java.io.Serializable;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -16,11 +16,17 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 import org.hibernate.validator.constraints.NotEmpty;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name = "alb_albuns")
-public class Album {
+public class Album implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,7 +44,11 @@ public class Album {
 	@Column(name = "alb_ano_lancamento", nullable = false)
 	private int anoDeLancamento;
 	
-	@OneToMany(mappedBy = "album", fetch = FetchType.EAGER, cascade = CascadeType.MERGE, orphanRemoval = true)
+	@OneToMany(mappedBy = "album", fetch = FetchType.EAGER)
+	@Cascade({
+		CascadeType.ALL,
+	})
+	@JsonBackReference  
 	private Set<Musica> musicas;
 
 	public Long getId() {

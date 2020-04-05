@@ -10,7 +10,7 @@
             <label>Música a ser pesquisado: </label>
             <input type="text" id="txt-pesquisa" class="form-control">
         </div>
-        <button class="btn btn-default" id="btn-pesquisa">Pesquisar</button>
+        <button class="btn btn-primary" id="btn-pesquisa">Pesquisar</button>
     </div>
 </div>
 <hr/>
@@ -41,4 +41,41 @@
 </table>
 <br/>
 <a href="/treinaweb-spring-mvc/musicas/adicionar" class="btn btn-primary">Adicionar nova música</a>
+
+<script type="text/javascript">
+$(document).ready(function () {
+    $('#btn-pesquisa').click(function () {
+        var nomeMusica = $('#txt-pesquisa').val();
+        $.ajax({
+            method: 'GET',
+            url: '/treinaweb-spring-mvc/musicas/porNome?nome=' + nomeMusica,
+            success: function (data) {
+                $('#tbl-albuns tbody > tr').remove();
+                $.each(data, function (index, musica) {
+                    $('#tbl-albuns tbody').append(
+                        '<tr>' +
+                        '   <td>' + musica.id + '</td>' +
+                        '   <td>' + musica.nome + '</td>' +
+                        '   <td>' + musica.dataCriacao + '</td>' +
+                        '   <td>' + musica.album.nome + '</td>' +
+                        '   <td>' +
+                        '       <a href="/treinaweb-spring-mvc/musicas/alterar/' + musica.id + '">Alterar</a> |' +
+                        '       <a href="/treinaweb-spring-mvc/musicas/excluir/' + musica.id + '">Excluir</a> ' +
+                        '   </td>' +
+                        '</tr>'
+                    );
+                });
+            },
+            error: function () {
+                alert("Houve um erro na requisição.");
+            }
+        });
+    });
+});
+</script>
+
+
+
+
+
 
