@@ -2,7 +2,7 @@
          pageEncoding="UTF-8" %>
 <h2>Login</h2>
 
-<form action="/TreinaWebSpringMVC/login" method="post">
+<form action="/treinaweb-spring-mvc/login" method="post">
 
     <div class="row">
         <div class="col-md-6">
@@ -22,5 +22,5 @@
         </div>
     </div>
 
-    <input type="submit" value="Fazer login" class="btn btn-default"/>
+    <input type="submit" value="Fazer login" class="btn btn-default-primary"/>
 </form>
