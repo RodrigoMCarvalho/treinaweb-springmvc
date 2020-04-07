@@ -22,5 +22,5 @@
         </div>
     </div>
 
-    <input type="submit" value="Fazer login" class="btn btn-default-primary"/>
+    <input type="submit" value="Fazer login" class="btn btn-primary"/>
 </form>

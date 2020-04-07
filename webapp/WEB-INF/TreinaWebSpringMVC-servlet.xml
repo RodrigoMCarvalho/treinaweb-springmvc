@@ -87,6 +87,8 @@
         <sec:intercept-url pattern="/**/adicionar" access="hasRole('ROLE_ADMIN')" />
         <sec:intercept-url pattern="/**/alterar/**" access="hasRole('ROLE_ADMIN')" />
         <sec:intercept-url pattern="/**/excluir/**" access="hasRole('ROLE_ADMIN')" />
+        <sec:intercept-url pattern="/home.jsp" access="permitAll" /> 
+		<sec:intercept-url pattern="/*" access="isAuthenticated()" /> 
         <sec:form-login login-page="/home/login"
                         default-target-url="/home/bemvindo"
                         authentication-failure-url="/home/login"
